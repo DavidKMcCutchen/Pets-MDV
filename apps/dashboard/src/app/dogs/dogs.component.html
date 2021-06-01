@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="col-50" layout="row" layout-align="center center">
+    <pets-dogs-list
+      [dogs]="allDogs$ | async"
+      (selected)="selectDog($event)"
+      (deleted)="deleteDog($event)"
+    ></pets-dogs-list>
+  </div>
+  <div class="col-50" layout="row" layout-align="center center">
+    <pets-dogs-details
+      [dog]="selectedDog$ | async"
+      (saved)="saveDog($event)"
+      (cancelled)="resetDog()"
+      [form]="form"
+    ></pets-dogs-details>
+  </div>
+</div>
